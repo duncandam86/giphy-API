@@ -2,7 +2,7 @@ $(document).ready(function () {
     //creating array to store actions 
     //Array already had some actions
     var actionArray = ["jumping", "running", "walking", "catching", "singing", "kissing", "spooning", "lazysleeping"];
-    var actionIndex = 0
+    
 
     //function to display the button of the action in the Array
     function displayGiphyButton() {
@@ -14,14 +14,13 @@ $(document).ready(function () {
             actionButton.addClass("action");
             actionButton.addClass("btn btn-success");
             actionButton.attr("type", "button");
-            actionButton.attr("id", actionArray[i]);
+            actionButton.attr("data-action", actionArray[i]);
             actionButton.text(actionArray[i]);
-            var newbutton = $("#actionButton").append(actionButton);
+            $("#actionButton").append(actionButton);
         }
     }
     //console.log(actionButton);
-    //call displayGiphyButton function
-    displayGiphyButton();
+    
 
     // create new function to add new action into the list
     function addAction() {
@@ -36,17 +35,52 @@ $(document).ready(function () {
             else {
                 // take input from the add an action box and push into the action array
                 actionArray.push(newAction);
-                //console.log(actionArray);
+                console.log(actionArray);
                 // display it as a new button
                 displayGiphyButton();
             }
         })
     }
-    //call addAction
-    addAction();
-    
-
+   
     //create new function for API with an AJAX call
+    function giphyDisplay(){
+        //adding click even to all button
+        
+        $("button").on("click", function(){
+            // create variable to store value of button
+            var action = $(this).attr("data-action");
+            console.log(action);
+            //constructing a queryURL using the action name
+            var queryURL = "http://api.giphy.com/v1/gifs/search?q="+ action +"&api_key=dc6zaTOxFJmzC&limit=10";
+            
+            //performing and AJAX request with the queryURL
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            })
+            // After data has been retrieved from the request
+            .then(function(response){
+                console.log (queryURL);
+                console.log (response);
+                // empty div that giphyimages will be shown
+                $("#giphyImages").empty();
+                //storing the data from the AJAX request in the results variable
+                var results = response.data;
+
+                //looping through each result item
+                for (var i =0; i < results.length; i++){
+
+                }
+            })
+            
+        })
+        
+
+    }
+    //call function
+    displayGiphyButton();
+    addAction();
+    giphyDisplay();
 
 
 
