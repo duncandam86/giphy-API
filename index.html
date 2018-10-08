@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FUN GIPHY</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <div class="jumbotron text-center">
+        <h1 id="title">Fun GIPHY everyday</h1>
+    </div>
+
+    <div class="container">
+        <!--Storing all new button-->
+        <div class="row">
+            <span id="actionButton"></span>
+        </div>
+        
+        <div class="row">
+        <!--storing giphy images-->
+            <div class="col-md-8">
+                <span id="giphyImages"></span>
+            </div>
+        <!--add new action-->
+            <div class="col-md-4">
+                <h4>Add an action</h4>
+                <input type="action" class="form-control" id="inputAction"><br>
+                <input class="btn btn-primary" type="submit" id="addAction">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script rel="text/javascript" src="assets/javascripts/giphyAPI.js"></script>
+    
+</body>
+
+</html>
