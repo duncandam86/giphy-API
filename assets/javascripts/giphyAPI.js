@@ -53,7 +53,7 @@ $(document).ready(function () {
             var action = $(this).attr("data-action");
             console.log(action);
             //constructing a queryURL using the action name
-            var queryURL = "http://api.giphy.com/v1/gifs/search?q="
+            var queryURL = "https://api.giphy.com/v1/gifs/search?q="
                 + action + "&api_key=rRYb44zbEG9a9yHY6jfV0gSrFV9zWQRP&limit=15";
 
             //performing and AJAX request with the queryURL
