@@ -54,7 +54,7 @@ $(document).ready(function () {
             console.log(action);
             //constructing a queryURL using the action name
             var queryURL = "http://api.giphy.com/v1/gifs/search?q="
-                + action + "&api_key=dc6zaTOxFJmzC&limit=15";
+                + action + "&api_key=rRYb44zbEG9a9yHY6jfV0gSrFV9zWQRP&limit=15";
 
             //performing and AJAX request with the queryURL
             $.ajax({
