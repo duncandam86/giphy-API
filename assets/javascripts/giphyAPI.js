@@ -42,7 +42,9 @@ $(document).ready(function () {
             }
 
         })
+
     }
+
 
     //create new function for API with an AJAX call
     function giphyDisplay() {
@@ -54,7 +56,7 @@ $(document).ready(function () {
             console.log(action);
             //constructing a queryURL using the action name
             var queryURL = "https://api.giphy.com/v1/gifs/search?q="
-                + action + "&api_key=rRYb44zbEG9a9yHY6jfV0gSrFV9zWQRP&limit=15";
+                + action + "&api_key=rRYb44zbEG9a9yHY6jfV0gSrFV9zWQRP&limit=20";
 
             //performing and AJAX request with the queryURL
             $.ajax({
@@ -69,12 +71,12 @@ $(document).ready(function () {
                     $("#giphyImages").empty();
                     //storing the data from the AJAX request in the results variable
                     var results = response.data;
-
+                    // showing those giphy on HTML
                     //looping through each result item
                     for (var i = 0; i < results.length; i++) {
                         //creating and storing a div tag
                         var actionDiv = $("<div>");
-                        actionDiv.addClass("col-sm-4");
+                        actionDiv.addClass("col-sm-3");
 
                         //creating a paragraph tag to store the rating
                         var pRating = $("<p>").text("Rating:" + results[i].rating);
@@ -102,8 +104,8 @@ $(document).ready(function () {
                     }
                 })
         })
-
     }
+
     //giphy click function 
     $(document).on("click", ".gif", function () {
         // set the state of the image and store it in the new variable
@@ -129,5 +131,6 @@ $(document).ready(function () {
     displayGiphyButton();
     giphyDisplay();
     addAction();
+    moreGiphy();
 
 })
