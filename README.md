@@ -1,4 +1,4 @@
-GIPHY-API (Gifstatic)
+GIPHY-API (Gifstatic) - created by Duncan Dam
 
 Live Link
     https://duncandam86.github.io/giphy-API/
