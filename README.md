@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 GIPHY-API (Gifstatic) - created by Duncan Dam
 
 Live Link
@@ -20,4 +21,6 @@ Technical Requirement
     CSS
 
 
+=======
+>>>>>>> 3cbc088a8aa285c78c2e2842245b4e394c36678c
 
