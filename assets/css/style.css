@@ -1,0 +1,15 @@
+.jumbotron{
+    background-color: salmon;
+}
+.gif{
+    width: 200px;
+    height: 150px;
+}
+button{
+    margin-right: 3px;
+    margin-top: 3px;
+}
+
+#inputAction{
+    width: 200px;
+}

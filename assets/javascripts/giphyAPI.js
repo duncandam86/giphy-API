@@ -1,7 +1,7 @@
 $(document).ready(function () {
     //creating array to store actions 
     //Array already had some actions
-    var actionArray = ["jumping", "running", "walking", "catching", "singing", "kissing", "spooning", "lazysleeping"];
+    var actionArray = ["RuPaul Charles", "Trixie Mattel", "Shangela", "Bianca Del Rio", "Raja", "Raven", "Kimchi", "Bob the Drag Queen"];
 
 
     //function to display the button of the action in the Array
@@ -38,7 +38,9 @@ $(document).ready(function () {
                 console.log(actionArray);
                 // display it as a new button
                 displayGiphyButton();
+                giphyDisplay();
             }
+
         })
     }
 
@@ -52,7 +54,7 @@ $(document).ready(function () {
             console.log(action);
             //constructing a queryURL using the action name
             var queryURL = "http://api.giphy.com/v1/gifs/search?q="
-                + action + "&api_key=dc6zaTOxFJmzC&limit=10";
+                + action + "&api_key=dc6zaTOxFJmzC&limit=15";
 
             //performing and AJAX request with the queryURL
             $.ajax({
@@ -71,15 +73,25 @@ $(document).ready(function () {
                     //looping through each result item
                     for (var i = 0; i < results.length; i++) {
                         //creating and storing a div tag
-                        var actionDiv = $("</div>");
+                        var actionDiv = $("<div>");
+                        actionDiv.addClass("col-sm-4");
 
                         //creating a paragraph tag to store the rating
                         var pRating = $("<p>").text("Rating:" + results[i].rating);
 
                         //creating a image tag to store the giphy
                         var actionGiphyImage = $("<img>");
+                        //add class to the img tag
+                        actionGiphyImage.addClass("gif");
+
                         //setting the src attribute for the giphy image to propery that comes from the result item
-                        actionGiphyImage.attr("src", results[i].images.fixed_height.url);
+                        actionGiphyImage.attr("src", results[i].images.fixed_height_still.url);
+                        //setting the attribute for still image
+                        actionGiphyImage.attr("data-still", results[i].images.fixed_height_still.url);
+                        //setting the attribute for animate image
+                        actionGiphyImage.attr("data-animate", results[i].images.fixed_height.url);
+                        //setting the state of the image
+                        actionGiphyImage.attr("data-state", "still")
 
                         //appending the pRating tag to the div tag
                         actionDiv.append(pRating);
@@ -92,29 +104,30 @@ $(document).ready(function () {
         })
 
     }
+    //giphy click function 
+    $(document).on("click", ".gif", function () {
+        // set the state of the image and store it in the new variable
+        var state = $(this).attr("data-state");
+        // if the state is still, when click update to animate
+        if (state === "still") {
+            //set the src attribute to the animate attribute of data-animate
+            $(this).attr("src", $(this).attr("data-animate"));
+            // change data-state to animate
+            $(this).attr("data-state", "animate");
+        }
+        // if the state is not still or it is animate
+        else {
+            // set the src attribute to the still attribute of data-still
+            $(this).attr("src", $(this).attr("data-still"));
+            //change data-state to still
+            $(this).attr("data-state", "still");
+        }
+    });
+
+
     //call function
     displayGiphyButton();
-    addAction();
     giphyDisplay();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    addAction();
 
 })
