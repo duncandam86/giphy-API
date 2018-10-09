@@ -1,7 +1,7 @@
 $(document).ready(function () {
     //creating array to store actions 
     //Array already had some actions
-    var actionArray = ["RuPaul Charles", "Trixie Mattel", "Shangela", "Bianca Del Rio", "Raja", "Raven", "Kimchi", "Bob the Drag Queen"];
+    var actionArray = ["RuPaul Charles", "Trixie Mattel", "Shangela", "Bianca Del Rio", "Raja", "Raven", "Kimchi", "Bob the Drag Queen", "Alyssa Edwards",];
 
 
     //function to display the button of the action in the Array
