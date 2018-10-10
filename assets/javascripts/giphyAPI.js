@@ -42,9 +42,7 @@ $(document).ready(function () {
             }
 
         })
-
     }
-
 
     //create new function for API with an AJAX call
     function giphyDisplay() {
@@ -79,7 +77,7 @@ $(document).ready(function () {
                         actionDiv.addClass("col-sm-3");
 
                         //creating a paragraph tag to store the rating
-                        var pRating = $("<p>").text("Rating:" + results[i].rating);
+                        var pRating = $("<p>").html("<b> Rating:" + results[i].rating + "</b>");
 
                         //creating a image tag to store the giphy
                         var actionGiphyImage = $("<img>");
@@ -126,11 +124,9 @@ $(document).ready(function () {
         }
     });
 
-
     //call function
     displayGiphyButton();
     giphyDisplay();
     addAction();
-    moreGiphy();
-
+   
 })
